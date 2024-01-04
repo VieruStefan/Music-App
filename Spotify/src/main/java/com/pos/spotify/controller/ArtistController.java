@@ -42,7 +42,7 @@ public class ArtistController {
         return assembler.toModel(artist);
     }
     @PutMapping("/{uuid}")
-    @Secured("ROLE_CONTENT_MANAGER")
+    @Secured({"ROLE_CONTENT_MANAGER", "ROLE_ADMINISTRATOR_APP"})
     public EntityModel<Artist> newArtist(@RequestBody Artist artist,
                                          @PathVariable String uuid){
         artist.setUuid(uuid);
