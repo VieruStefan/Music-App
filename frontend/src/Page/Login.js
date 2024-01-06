@@ -26,19 +26,25 @@ export default class Login extends Component{
         
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>        
-            <label>
-                Name: 
+           
+            <form onSubmit={this.handleSubmit} className="form">     
+            <h2>Login</h2>  
+            <div className="input">
+            <label><span>
+                Name: </span> 
                 <input type="text"
                  /> 
             </label>
+            </div>
             <br/>
-            <label>
-                Password: 
+            <div className="input">
+            <label><span>
+                Password: </span>
                 <input type="password" 
                 /> 
             </label>
-            <input type="submit" value="Submit" />
+            </div> 
+            <button className="button" type="submit"> Submit </button>
             </form>
         );
     }

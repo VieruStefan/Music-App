@@ -24,7 +24,7 @@ export default class Logout extends Component{
     render() {
         return (
             <div>
-                <h1>Logout Page</h1>
+                <h2>ByeBye!</h2>
             </div>
         )
     }

@@ -46,11 +46,12 @@ const UpdateRecord = () => {
 
   return (
     <div>
+    <div className="form-update">
       <div>
         <div>
-          <h1>Update Record</h1>
+          <h2>Update Record</h2>
         </div>
-        <div>
+        <div className="input-update">
           <label>
             ID
           </label>
@@ -58,9 +59,9 @@ const UpdateRecord = () => {
             type="text"
             name="id"
             value={record.id}
-            onChange={(e) => handleChange(e)}></input>
+            onChange={(e) => handleChange(e)} />
         </div>
-        <div>
+        <div className="input-update">
           <label>
             Name
           </label>
@@ -68,9 +69,9 @@ const UpdateRecord = () => {
             type="text"
             name="name"
             value={record.name}
-            onChange={(e) => handleChange(e)}></input>
+            onChange={(e) => handleChange(e)} />
         </div>
-        <div>
+        <div className="input-update">
           <label>
             Genre
           </label>
@@ -78,9 +79,9 @@ const UpdateRecord = () => {
             type="text"
             name="genre"
             value={record.genre}
-            onChange={(e) => handleChange(e)}></input>
+            onChange={(e) => handleChange(e)} />
         </div>
-        <div>
+        <div className="input-update">
           <label>
             Type
           </label>
@@ -88,9 +89,9 @@ const UpdateRecord = () => {
             type="text"
             name="type"
             value={record.type}
-            onChange={(e) => handleChange(e)}></input>
+            onChange={(e) => handleChange(e)} />
         </div>
-        <div>
+        <div className="input-update">
           <label>
             Year
           </label>
@@ -98,9 +99,9 @@ const UpdateRecord = () => {
             type="text"
             name="year"
             value={record.year}
-            onChange={(e) => handleChange(e)}></input>
+            onChange={(e) => handleChange(e)} />
         </div>
-        <div>
+        <div className="input-update">
           <label>
             Parent
           </label>
@@ -108,20 +109,19 @@ const UpdateRecord = () => {
             type="text"
             name="parent"
             value={record.parent}
-            onChange={(e) => handleChange(e)}></input>
+            onChange={(e) => handleChange(e)} />
         </div>
-        <div >
-          <button
-            onClick={UpdateRecord}>
+        <div className="input-update">
+          <button className="button" onClick={UpdateRecord}>
             Update
           </button>
-          <button
-            onClick={() => navigate("/recordList")}>
+          <button className="button" onClick={() => navigate("/recordList")}>
             Cancel
           </button>
         </div>
       </div>
     </div>
+  </div>
   );
 };
 

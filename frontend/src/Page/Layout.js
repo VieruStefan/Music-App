@@ -3,7 +3,7 @@ import { Outlet, Link } from "react-router-dom";
 const Layout = () => {
   return (
     <>
-    <table>
+    <table className="navbar">
       <tbody>
           <tr>
               <td width={80} align="center"><Link to="/">Home</Link></td>

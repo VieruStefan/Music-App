@@ -41,11 +41,11 @@ const AddArtist = () => {
 
   return (
     <div>
-      <div>
+      <div className="form-update">
         <div>
-          <h1>Add New Artist</h1>
+          <h2>Add New Artist</h2>
         </div>
-        <div>
+        <div className="input-update">
           <label>Uuid</label>
           <input
             type="text"
@@ -53,7 +53,7 @@ const AddArtist = () => {
             value={artist.uuid}
             onChange={(e) => handleChange(e)}></input>
         </div>
-        <div>
+        <div className="input-update">
           <label>Name</label>
           <input
             type="text"
@@ -61,7 +61,7 @@ const AddArtist = () => {
             value={artist.name}
             onChange={(e) => handleChange(e)}></input>
         </div>
-        <div>
+        <div className="input-update">
           <label>Is he active?</label>
           <input
             type="text"
@@ -69,12 +69,12 @@ const AddArtist = () => {
             value={artist.active}
             onChange={(e) => handleChange(e)}></input>
         </div>
-        <div>
-          <button
+        <div className="input-update">
+          <button className="button"
             onClick={saveArtist}>
             Save
           </button>
-          <button
+          <button className="button"
             onClick={reset}>
             Clear
           </button>

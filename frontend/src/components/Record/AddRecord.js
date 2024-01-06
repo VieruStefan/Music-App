@@ -47,9 +47,9 @@ const AddRecord = () => {
 
   return (
     <div>
-      <div>
+      <div className="form-update">
         <div>
-          <h1>Add New Record</h1>
+          <h2>Add New Record</h2>
         </div>
         {/* <div>
           <label>ID</label>
@@ -59,7 +59,7 @@ const AddRecord = () => {
             value={record.id}
             onChange={(e) => handleChange(e)}></input>
         </div> */}
-        <div>
+        <div className="input-update">
           <label>Name</label>
           <input
             type="text"
@@ -67,7 +67,7 @@ const AddRecord = () => {
             value={record.name}
             onChange={(e) => handleChange(e)}></input>
         </div>
-        <div>
+        <div className="input-update">
           <label>
             Genre
           </label>
@@ -77,7 +77,7 @@ const AddRecord = () => {
             value={record.genre}
             onChange={(e) => handleChange(e)}></input>
         </div>
-        <div>
+        <div className="input-update">
           <label>
             Type
           </label>
@@ -87,7 +87,7 @@ const AddRecord = () => {
             value={record.type}
             onChange={(e) => handleChange(e)}></input>
         </div>
-        <div>
+        <div className="input-update">
           <label>
             Year
           </label>
@@ -107,12 +107,12 @@ const AddRecord = () => {
             value={record.parent}
             onChange={(e) => handleChange(e)}></input>
         </div> */}
-        <div>
+        <div className="input-update">
           <button
             onClick={saveRecord}>
             Save
           </button>
-          <button
+          <button className="button"
             onClick={reset}>
             Clear
           </button>

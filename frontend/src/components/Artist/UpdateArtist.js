@@ -43,11 +43,11 @@ const UpdateArtist = () => {
 
   return (
     <div>
-      <div>
+      <div className="form-update">
         <div>
-          <h1>Update Artist</h1>
+          <h2>Update Artist</h2>
         </div>
-        <div>
+        <div className="input-update">
           <label>
             Uuid
           </label>
@@ -57,7 +57,7 @@ const UpdateArtist = () => {
             value={artist.uuid}
             onChange={(e) => handleChange(e)}></input>
         </div>
-        <div>
+        <div className="input-update">
           <label>
             Name
           </label>
@@ -67,7 +67,7 @@ const UpdateArtist = () => {
             value={artist.name}
             onChange={(e) => handleChange(e)}></input>
         </div>
-        <div>
+        <div className="input-update">
           <label>
             Active
           </label>
@@ -78,12 +78,12 @@ const UpdateArtist = () => {
             onChange={(e) => handleChange(e)}></input>
         </div>
 
-        <div >
-          <button
+        <div className="input-update">
+          <button className="button"
             onClick={UpdateArtist}>
             Update
           </button>
-          <button
+          <button  className="button"
             onClick={() => navigate("/artistList")}>
             Cancel
           </button>
