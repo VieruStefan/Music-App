@@ -1,17 +1,15 @@
 import { Component } from "react";
 import { setAuthToken } from "../services/setAuthToken";
-import { Link } from 'react-router-dom';
 import axios from "axios";
-export default class Login extends Component{
+export default class Register extends Component{
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
-
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        axios.put("http://localhost:7000/api/auth/authenticate", {
+        axios.post("http://localhost:7000/api/auth/register", {
             uname: e.target[0].value,
             upass: e.target[1].value
         })
@@ -27,29 +25,24 @@ export default class Login extends Component{
         
     render() {
         return (
-            <div>
+           
             <form onSubmit={this.handleSubmit} className="form">     
-            <h2>Login</h2>  
+            <h2>Register</h2>  
             <div className="input">
             <label><span>
                 Name: </span> 
-                <input type="text"
-                 /> 
+                <input type="text"/> 
             </label>
             </div>
             <br/>
             <div className="input">
             <label><span>
                 Password: </span>
-                <input type="password" 
-                /> 
+                <input type="password"/> 
             </label>
             </div> 
-            <div>Not account?<Link to="/register">Register here</Link></div> 
             <button className="button" type="submit"> Submit </button>
             </form>
-            
-            </div>
         );
     }
 }

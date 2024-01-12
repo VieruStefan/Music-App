@@ -1,8 +1,15 @@
 import { Outlet, Link } from "react-router-dom";
-
+import React, { useState, useEffect } from 'react';
 const Layout = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const jwt = localStorage.getItem('token');
+    setIsLoggedIn(jwt);
+  }, []);
+
   return (
-    <>
+    <div>
     <table className="navbar">
       <tbody>
           <tr>
@@ -13,15 +20,15 @@ const Layout = () => {
               <td width={80} align="center"><Link to="/recordList">Records</Link></td>
               <td width={80} align="center"><Link to="/addRecord">Add record</Link></td>
               <td width={80} align="center"><Link to="/updateRecord">Update record</Link></td>
-              <td width={80} align="center"><Link to="/login">Login</Link></td>
+              <td width={80} align="center" hidden={isLoggedIn}><Link to="/login" >Login</Link></td>
               <td width={80} align="center"><Link to="/logout">Logout</Link></td>
           </tr>
         </tbody>
     </table>
 
 
-      <Outlet />
-    </>
+    <Outlet />
+    </div>
   )
 };
 

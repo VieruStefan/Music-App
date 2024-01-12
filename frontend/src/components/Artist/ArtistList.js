@@ -19,8 +19,8 @@ const ArtistList = () =>{
                 setArtists(response.data._embedded.artistList);
             }catch(error){
                 console.log(error);
-                alert("Log in!");
-                window.location.href = '/login';
+                alert("Nothing here yet!");
+                window.location.href = '/';
             }
             setLoading(false);
         };

@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import { setAuthToken } from '../services/setAuthToken';
 import Login from './Login';
+import Register from './Register';
 import Logout from './Logout';
 import HomePage from './HomePage';
 import UpdateArtist from '../components/Artist/UpdateArtist';
@@ -37,6 +38,7 @@ function AppRouter(){
             <Route path="/addRecord" element={<AddRecord />} />
             <Route path="/updateRecord" element={<UpdateRecord />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
             <Route path='/logout' element={<Logout />} />
           </Route>
         </Routes>

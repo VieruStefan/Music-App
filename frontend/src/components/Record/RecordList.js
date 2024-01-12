@@ -20,8 +20,8 @@ const RecordList = () =>{
                 setRecords(response.data._embedded.recordList);
             }catch(error){
                 console.log(error);
-                alert("Log in!");
-                window.location.href = '/login';
+                alert("Nothing here yet!");
+                window.location.href = '/';
             }
             setLoading(false);
         };
