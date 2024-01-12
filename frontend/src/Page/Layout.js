@@ -21,7 +21,7 @@ const Layout = () => {
               <td width={80} align="center"><Link to="/addRecord">Add record</Link></td>
               <td width={80} align="center"><Link to="/updateRecord">Update record</Link></td>
               <td width={80} align="center" hidden={isLoggedIn}><Link to="/login" >Login</Link></td>
-              <td width={80} align="center"><Link to="/logout">Logout</Link></td>
+              <td width={80} align="center" hidden={!isLoggedIn}><Link to="/logout">Logout</Link></td>
           </tr>
         </tbody>
     </table>
