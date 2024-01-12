@@ -33,6 +33,7 @@ const ArtistList = () =>{
                 <tr>
                   <th>Name</th>
                   <th>Active</th>
+                  <th>Songs</th>
                   <th colSpan={2}>Action</th>
                 </tr>
               </thead>

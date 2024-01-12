@@ -18,8 +18,8 @@ public class ArtistModelAssembler implements RepresentationModelAssembler<Artist
     public EntityModel<Artist> toModel(Artist entity) {
         return EntityModel.of(entity,
                 linkTo(methodOn(ArtistController.class).selectArtist(entity.getUuid())).withSelfRel(),
-                linkTo(methodOn(PortfolioController.class).getById(entity.getUuid())).withRel("songs"),
-        linkTo(methodOn(ArtistController.class).getArtists()).withRel("parent"));
+                linkTo(methodOn(PortfolioController.class).getRecords(entity.getUuid())).withRel("songs"),
+        linkTo(methodOn(ArtistController.class).getArtists()).withRel("root"));
 
     }
 }

@@ -15,12 +15,15 @@ const Artist = ({artist}) =>{
         window.location.href = "/artistList";
     }
     return (
-        <tr key = {artist.uuid}>
+        <tr key = {artist.uuid} style={{textAlign: "center"}}>
             <td>
                 <div>{artist.name}</div>
             </td>
             <td>
                 <div>{String(artist.active)}</div>
+            </td>
+            <td>
+                <a href={artist._links.songs.href}>Link</a>
             </td>
             <td width={75}>
                 <a onClick={(a, uuid) => editArtist(a, artist.uuid)} href="/updateArtist">

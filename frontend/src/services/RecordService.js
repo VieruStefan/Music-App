@@ -28,7 +28,8 @@ class RecordServiceClass{
             name: record.name,
             genre: record.genre,
             year: record.year,
-            type: record.type
+            type: record.type,
+            parent: record.parent
         }, {headers: {"Authorization" : `Bearer ${token}`}})
     }
 
@@ -39,7 +40,7 @@ class RecordServiceClass{
 
     getRecordById(id){
         checkExp();
-        return axios.get(RECORD_API_BASE_URL + "/" + id);
+        return axios.get(`${RECORD_API_BASE_URL}/${id}`);
     }
 
     updateRecord(record, id){
@@ -50,14 +51,15 @@ class RecordServiceClass{
             name: record.name,
             genre: record.genre,
             year: record.year,
-            type: record.type
+            type: record.type,
+            parent: record.parent
         }, {headers: {"Authorization" : `Bearer ${token}`}});
     }
 
     deleteRecord(id){
         checkExp();
         var token = localStorage.getItem("token");
-        return axios.delete(RECORD_API_BASE_URL + "/" + id, {headers: {"Authorization" : `Bearer ${token}`}});
+        return axios.delete(`${RECORD_API_BASE_URL}/${id}`, {headers: {"Authorization" : `Bearer ${token}`}});
     }
 }
 const RecordService = new RecordServiceClass()

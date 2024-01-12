@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import RecordService from "../../services/RecordService";
 
 const Record = ({record}) =>{
@@ -15,7 +15,7 @@ const Record = ({record}) =>{
         window.location.href = "/recordList";
     }
     return (
-        <tr key = {record.id}>
+        <tr key = {record.id}  style={{textAlign: "center"}}>
             <td>
                 <div>{record.name}</div>
             </td>
@@ -30,7 +30,7 @@ const Record = ({record}) =>{
             </td>
             <td>
                 <div>{
-                    record.parent === null ? "None":record.parent.name
+                    record.parent === null ? "None":<a href={record._links.parent.href}>{record.parent.name}</a>
                 }</div>
             </td>
             <td width={75}>

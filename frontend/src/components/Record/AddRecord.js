@@ -97,7 +97,7 @@ const AddRecord = () => {
             value={record.year}
             onChange={(e) => handleChange(e)}></input>
         </div>
-        {/* <div>
+        <div>
           <label>
             Parent
           </label>
@@ -106,7 +106,7 @@ const AddRecord = () => {
             name="parent"
             value={record.parent}
             onChange={(e) => handleChange(e)}></input>
-        </div> */}
+        </div>
         <div className="input-update">
           <button
             onClick={saveRecord}>

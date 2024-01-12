@@ -23,7 +23,7 @@ class ArtistServiceClass{
     saveArtist(artist, uuid){
         checkExp()
         var token = localStorage.getItem("token");
-        return axios.put(ARTIST_API_BASE_URL + "/" + uuid, artist, {headers: {"Authorization" : `Bearer ${token}`}})
+        return axios.put(`${ARTIST_API_BASE_URL}/${uuid}`, artist, {headers: {"Authorization" : `Bearer ${token}`}})
     }
 
     getArtists(){
@@ -33,19 +33,24 @@ class ArtistServiceClass{
 
     getArtistByUUID(uuid){
         checkExp()
-        return axios.get(ARTIST_API_BASE_URL + "/" + uuid);
+        return axios.get(`${ARTIST_API_BASE_URL}/${uuid}`);
+    }
+
+    getArtistSongs(uuid){
+        checkExp()
+        return axios.get(`${ARTIST_API_BASE_URL}/${uuid}/songs`);
     }
 
     updateArtist(artist, uuid){
         checkExp()
         var token = localStorage.getItem("token");
-        return axios.put(ARTIST_API_BASE_URL + "/" + uuid, artist, {headers: {"Authorization" : `Bearer ${token}`}});
+        return axios.put(`${ARTIST_API_BASE_URL}/${uuid}`, artist, {headers: {"Authorization" : `Bearer ${token}`}});
     }
 
     deleteArtist(uuid){
         checkExp()
         var token = localStorage.getItem("token");
-        return axios.delete(ARTIST_API_BASE_URL + "/" + uuid, {headers: {"Authorization" : `Bearer ${token}`}});
+        return axios.delete(`${ARTIST_API_BASE_URL}/${uuid}`, {headers: {"Authorization" : `Bearer ${token}`}});
     }
 }
 const ArtistService = new ArtistServiceClass()
