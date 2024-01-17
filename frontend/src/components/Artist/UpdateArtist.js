@@ -27,7 +27,7 @@ const UpdateArtist = () => {
     };
     fetchData();
     // eslint-disable-next-line
-  }, []);
+  }, [uuid]);
 
   const UpdateArtist = (e) => {
     e.preventDefault();

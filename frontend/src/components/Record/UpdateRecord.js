@@ -3,15 +3,15 @@ import { useNavigate, useParams } from "react-router-dom";
 import RecordService from "../../services/RecordService";
 
 const UpdateRecord = () => {
-  const { id } = useParams();
   const navigate = useNavigate();
+  const { id } = useParams();
   const [record, setRecord] = useState({
     id: id,
     name: "",
     genre: "",
     type: "",
     year: "",
-    parent: ""
+    parent_name: ""
   });
 
   const handleChange = (e) => {
@@ -23,14 +23,17 @@ const UpdateRecord = () => {
     const fetchData = async () => {
       try {
         const response = await RecordService.getRecordById(record.id);
-        setRecord(response.data);
+        setRecord((prevRecord) => ({
+          ...response.data,
+          parent_name: response.data.parent !== null ? response.data.parent.name : prevRecord.parent_name
+        }));
       } catch (error) {
         console.log(error);
       }
     };
     fetchData();
     // eslint-disable-next-line
-  }, []);
+  }, [id]);
 
   const UpdateRecord = (e) => {
     e.preventDefault();
@@ -58,7 +61,7 @@ const UpdateRecord = () => {
           <input
             type="text"
             name="id"
-            value={record.id}
+            value={id}
             onChange={(e) => handleChange(e)} />
         </div>
         <div className="input-update">
@@ -107,8 +110,8 @@ const UpdateRecord = () => {
           </label>
           <input
             type="text"
-            name="parent"
-            value={record.parent}
+            name="parent_name"
+            value={record.parent_name}
             onChange={(e) => handleChange(e)} />
         </div>
         <div className="input-update">

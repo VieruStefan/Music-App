@@ -35,15 +35,27 @@ public class RecordController {
     public EntityModel<Record> selectRecord(@PathVariable(value = "id") int id){
         return assembler.toModel(recordService.getRecordById(id));
     }
-    @PutMapping
-    @Secured({"ROLE_CONTENT_MANAGER", "ROLE_ARTIST"})
+    @PostMapping
+    @Secured({"ROLE_CONTENT_MANAGER", "ROLE_ARTIST", "ROLE_ADMINISTRATOR_APP"})
     public EntityModel<Record> newRecord(@RequestBody Record record){
+        if(record.getParent()!=null & record.getParent().getName()!=null){
+        record.setParent(recordService.getRecordByName(record.getParent().getName()));}
         recordService.saveRecord(record);
         return assembler.toModel(recordService.getRecordById(record.getId()));
     }
 
+    @PutMapping("/{id}")
+    @Secured({"ROLE_CONTENT_MANAGER", "ROLE_ARTIST", "ROLE_ADMINISTRATOR_APP"})
+    public EntityModel<Record> updateRecord(@RequestBody Record record, @PathVariable(value="id") int id){
+        record.setId(id);
+        if(record.getParent()!=null && record.getParent().getName()!=null){
+            record.setParent(recordService.getRecordByName(record.getParent().getName()));}
+        recordService.updateRecord(record);
+        return assembler.toModel(recordService.getRecordById(record.getId()));
+    }
+
     @DeleteMapping("/{rid}")
-    @Secured({"ROLE_CONTENT_MANAGER", "ROLE_ARTIST"})
+    @Secured({"ROLE_CONTENT_MANAGER", "ROLE_ARTIST", "ROLE_ADMINISTRATOR_APP"})
     public void deleteRecord(@PathVariable String rid){
         recordService.deleteSongById(Integer.parseInt(rid));
     }

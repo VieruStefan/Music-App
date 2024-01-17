@@ -17,6 +17,9 @@ public interface RecordService {
     //read by id
     Record getRecordById(int id);
 
+    //read by id
+    Record getRecordByName(String name);
+
     //delete
     void deleteSongById(int id);
 }

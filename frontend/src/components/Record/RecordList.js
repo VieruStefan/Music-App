@@ -37,6 +37,7 @@ const RecordList = () =>{
                   <th>Type</th>
                   <th>Year</th>
                   <th>Parent</th>
+                  <th>Artist</th>
                   <th colSpan={2}>Action</th>
                 </tr>
               </thead>

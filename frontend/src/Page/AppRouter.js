@@ -33,10 +33,10 @@ function AppRouter(){
             <Route path='/' element={<HomePage/>}/>
             <Route path="/artistList" element={<ArtistList />} />
             <Route path="/addArtist" element={<AddArtist />} />
-            <Route path="/updateArtist" element={<UpdateArtist />} />
+            <Route path="/updateArtist/:uuid" element={<UpdateArtist />} />
             <Route path="/recordList" element={<RecordList />} />
             <Route path="/addRecord" element={<AddRecord />} />
-            <Route path="/updateRecord" element={<UpdateRecord />} />
+            <Route path="/updateRecord/:id" element={<UpdateRecord />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path='/logout' element={<Logout />} />

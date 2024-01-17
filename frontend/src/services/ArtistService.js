@@ -27,17 +27,14 @@ class ArtistServiceClass{
     }
 
     getArtists(){
-        checkExp()
         return axios.get(ARTIST_API_BASE_URL);
     }
 
     getArtistByUUID(uuid){
-        checkExp()
         return axios.get(`${ARTIST_API_BASE_URL}/${uuid}`);
     }
 
     getArtistSongs(uuid){
-        checkExp()
         return axios.get(`${ARTIST_API_BASE_URL}/${uuid}/songs`);
     }
 

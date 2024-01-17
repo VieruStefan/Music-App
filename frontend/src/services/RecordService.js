@@ -24,35 +24,35 @@ class RecordServiceClass{
     saveRecord(record){
         checkExp();
         var token = localStorage.getItem("token");
+        record.parent_name = record.parent_name === ""?null:record.parent_name;
         return axios.put(RECORD_API_BASE_URL , {
             name: record.name,
             genre: record.genre,
             year: record.year,
             type: record.type,
-            parent: record.parent
+            parent: {name:record.parent_name}
         }, {headers: {"Authorization" : `Bearer ${token}`}})
     }
 
     getRecords(){
-        checkExp();
         return axios.get(RECORD_API_BASE_URL);
     }
 
     getRecordById(id){
-        checkExp();
         return axios.get(`${RECORD_API_BASE_URL}/${id}`);
     }
 
     updateRecord(record, id){
         checkExp();
         var token = localStorage.getItem("token");
-        return axios.put(RECORD_API_BASE_URL, {
+        record.parent_name = record.parent_name === ""?null:record.parent_name;
+        return axios.put(`${RECORD_API_BASE_URL}/${id}`, {
             id: parseInt(record.id),
             name: record.name,
             genre: record.genre,
             year: record.year,
             type: record.type,
-            parent: record.parent
+            parent: {name:record.parent_name}
         }, {headers: {"Authorization" : `Bearer ${token}`}});
     }
 
@@ -60,6 +60,10 @@ class RecordServiceClass{
         checkExp();
         var token = localStorage.getItem("token");
         return axios.delete(`${RECORD_API_BASE_URL}/${id}`, {headers: {"Authorization" : `Bearer ${token}`}});
+    }
+
+    getArtist(id){
+        return axios.get(`${RECORD_API_BASE_URL}/${id}/artist`);
     }
 }
 const RecordService = new RecordServiceClass()

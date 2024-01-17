@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ArtistService from "../../services/ArtistService";
 
 const Artist = ({artist}) =>{
@@ -7,7 +7,7 @@ const Artist = ({artist}) =>{
     const editArtist = (a, uuid) => {
         a.preventDefault();
         console.log(uuid);
-        navigate(`/updateArtist`)
+        navigate(`/updateArtist/?uuid=${uuid}`);
     }
     const deleteArtist = async (a, uuid) => {
         a.preventDefault();
@@ -26,9 +26,12 @@ const Artist = ({artist}) =>{
                 <a href={artist._links.songs.href}>Link</a>
             </td>
             <td width={75}>
-                <a onClick={(a, uuid) => editArtist(a, artist.uuid)} href="/updateArtist">
+                {/* <a onClick={(a, uuid) => editArtist(a, artist.uuid)} href="/updateArtist">
                     Edit
-                </a>
+                </a> */}
+                    <Link to={`/updateArtist/${artist.uuid}`}>
+                        Edit
+                    </Link>
             </td> 
             <td width={75}>
                 <a onClick={(a, uuid) => deleteArtist(a, artist.uuid)} href="/deleteArtist">

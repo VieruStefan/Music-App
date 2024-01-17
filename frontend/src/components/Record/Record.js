@@ -1,14 +1,24 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import {  Link, useNavigate } from "react-router-dom";
 import RecordService from "../../services/RecordService";
 
 const Record = ({record}) =>{
     const navigate = useNavigate();
-    const editRecord = (a, id) => {
-        a.preventDefault();
-        console.log(id);
-        navigate(`/updateRecord`)
-    }
+    const [loading, setLoading] = useState(true);
+    useEffect(() => {
+        const fetchData = async() =>{
+            setLoading(true);
+            try{
+                const response = await RecordService.getArtist(record.id)
+                record.artist=response.data.name;
+            }catch(error){
+                console.log(error);
+            }
+            setLoading(false);
+        };
+        fetchData();
+    }, []);
+
     const deleteRecord = async (a, id) => {
         a.preventDefault();
         await RecordService.deleteRecord(id);
@@ -33,10 +43,18 @@ const Record = ({record}) =>{
                     record.parent === null ? "None":<a href={record._links.parent.href}>{record.parent.name}</a>
                 }</div>
             </td>
+            <td>
+                <div>
+                    {record.artist}
+                </div>
+            </td>
             <td width={75}>
-                <a onClick={(a, id) => editRecord(a, record.id)} href="/updateRecord">
+                {/* <a onClick={(a, id) => editRecord(a, record.id)} href="/updateRecord">
                     Edit
-                </a>
+                </a> */}
+                    <Link to={`/updateRecord/${record.id}`}>
+                        Edit
+                    </Link>
             </td> 
             <td width={75}>
                 <a onClick={(a, id) => deleteRecord(a, record.id)} href="/deleteRecord">

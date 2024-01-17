@@ -9,7 +9,7 @@ const AddRecord = () => {
     genre: "",
     type: "",
     year: "",
-    parent: ""
+    parent_name: ""
   });
 
   const navigate = useNavigate();
@@ -41,7 +41,7 @@ const AddRecord = () => {
         genre: "",
         type: "",
         year: "",
-        parent: ""
+        parent_name: ""
     });
   };
 
@@ -97,14 +97,14 @@ const AddRecord = () => {
             value={record.year}
             onChange={(e) => handleChange(e)}></input>
         </div>
-        <div>
+        <div className="input-update">
           <label>
             Parent
           </label>
           <input
             type="text"
-            name="parent"
-            value={record.parent}
+            name="parent_name"
+            value={record.parent_name}
             onChange={(e) => handleChange(e)}></input>
         </div>
         <div className="input-update">

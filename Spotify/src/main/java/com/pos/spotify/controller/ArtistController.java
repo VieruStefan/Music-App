@@ -51,7 +51,7 @@ public class ArtistController {
     }
 
     @DeleteMapping("/{uuid}")
-    @Secured("ROLE_CONTENT_MANAGER")
+    @Secured({"ROLE_CONTENT_MANAGER", "ROLE_ADMINISTRATOR_APP"})
     public void deleteArtist(@PathVariable String uuid){
         artistService.deleteArtistById(uuid);
     }

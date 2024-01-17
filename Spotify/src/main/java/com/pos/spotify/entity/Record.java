@@ -1,6 +1,5 @@
 package com.pos.spotify.entity;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.sql.Date;
 import java.util.ArrayList;
@@ -25,12 +24,12 @@ public class Record {
     @Enumerated(EnumType.STRING)
     @Column(name = "type")
     private RecordType type;
-    @ManyToOne
-    @JoinColumn(name = "parent")
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "parent_name", referencedColumnName = "name")
     private Record parent;
 
     @OneToMany(mappedBy = "parent")
-    //@JsonManagedReference
     private List<Record> songsOfAlbum = new ArrayList<Record>();
 
     @OneToMany(mappedBy = "record")

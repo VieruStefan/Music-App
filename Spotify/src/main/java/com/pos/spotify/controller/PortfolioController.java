@@ -53,7 +53,7 @@ public class PortfolioController {
     }
 
     @PutMapping ("/artists/{uuid}/songs")
-    @Secured({"ROLE_CONTENT_MANAGER", "ROLE_ARTIST", "ADMINISTRATOR_APP"})
+    @Secured({"ROLE_CONTENT_MANAGER", "ROLE_ARTIST", "ROLE_ADMINISTRATOR_APP"})
     public ArtistPortfolio savenew(@PathVariable("uuid") String uuid, @RequestBody Record record){
         return artistPortfolioService
                 .save(new ArtistPortfolio(artistService.getArtistById(uuid),
